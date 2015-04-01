@@ -23,7 +23,6 @@ app.controller('bikersCtrl', ['$scope', '$http', 'bikersService', '$sce', functi
 			]
 		};
 
-
 		bikersService.addBikers(dataPUT);
 		//console.log(dataPUT);
 
@@ -45,8 +44,7 @@ app.controller('bikersCtrl', ['$scope', '$http', 'bikersService', '$sce', functi
         },
 
         addBikers: function (_dataPut) {
-        	console.log(_dataPut);
-            return $http.put('json/bikers.json').then(function (_result) {
+            return $http.put('json/bikers.json', _dataPut).then(function (_result) {
                 if (typeof _result.data === 'object') {
                     return _result.data;
                 } else {

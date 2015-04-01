@@ -4,9 +4,10 @@
 	<meta charset="utf-8">
 	<title>Venturus Dummy App</title>
 
+	<link rel="stylesheet" href="css/grid.css">
 	<link rel="stylesheet" href="css/style.css">
-	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
-	<script src="js/app.js"></script>
+
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 
 	<!--[if lt IE 9]>
 		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -15,32 +16,85 @@
 </head>
 <body ng-app="bikersApp" ng-controller="bikersCtrl" >
 
+	<header>
 
-	<div class="content">
-		<table>
-			<thead>
-    			<tr>
-    				<th>Tempo</th>
-    				<th>Tipo</th>
-    				<th>Data</th>
-    				<th>Excluir</th>
-    			</tr>
-			</thead>
-			<tbody>
-	    		<tr ng-repeat="exercise in dataExercises">
-		    		<td>{{ exercise.tempo }}</td>
-		    		<td>{{ exercise.tipo }}</td>
-		    		<td>{{ exercise.data }}</td>
-		    		<td><a href="#" ng-click="deleteExercise(exercise)">excluir</a></td>
-	    		</tr>
-		    </tbody>
-    	</table>
+	</header>
+
+	<nav class="breadcrumb container_12">
+		<ul id="nav-list-breadcrumb">
+			<li><i class="fa fa-home"></i> <img src="images/arrow_breadcrumb" alt="Home"></li>
+			<li><a href="#">Page 1</a> <img src="images/arrow_breadcrumb" alt="Home"> </li>
+			<li><a href="#">Breadcrumb</a> <img src="images/arrow_breadcrumb" alt="Home"></li>
+			<li>Current Page</li>
+		</ul>
+	</nav>
+	
+	<section class="info-section" id="info-section">
+		
+
+	</section>
+
+	<div class="container_12">
+		<div class="content">
+			<table>
+				<thead>
+	    			<tr>
+	    				<th>Tempo</th>
+	    				<th>Tipo</th>
+	    				<th>Data</th>
+	    				<th>Excluir</th>
+	    			</tr>
+				</thead>
+				<tbody>
+		    		<tr ng-repeat="exercise in dataExercises">
+			    		<td>{{ exercise.tempo }}</td>
+			    		<td>{{ exercise.tipo }}</td>
+			    		<td>{{ exercise.data }}</td>
+			    		<td><a href="#" ng-click="deleteExercise(exercise)">excluir</a></td>
+		    		</tr>
+			    </tbody>
+	    	</table>
+		</div>
 	</div>
 
+	<section class="help container_12" id="help">
+		<header>
+			<h3>Help</h3>
+			<button id="close" class="close">Close</button>
+		</header>
+		<div class="content-help" id="content-help">
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut eget pulvinar nunc. Integer posuere pellentesque nibh, at porta risus aliquet vitae. Proin pellentesque felis nulla, sed elementum lacus euismod porta. Nunc sem nisi, sagittis a metus non, rhoncus tempor ipsum. Nunc augue sem, gravida a eros eu, posuere volutpat lacus. Integer luctus diam ut quam vehicula, sit amet porttitor enim sodales.</p>
+
+			<p>Proin ut condimentum leo. Aenean at ultricies turpis, eu molestie orci. Phasellus nulla dui, lacinia vel aliquam nec, hendrerit nec arcu. Ut imperdiet nulla nisl, sit amet pulvinar massa tempor sed. In eu facilisis risus, id venenatis ante. In vel fermentum risus. Ut eget quam in tortor condimentum commodo. Nunc mi lorem, dapibus facilisis lectus at, vestibulum faucibus metus.</p>
+
+			<p>Aliquam hendrerit efficitur commodo. Nulla lacus nunc, ultricies id ante eu, blandit laoreet leo. Nullam consectetur consequat enim, non pharetra metus eleifend in. Cras ut efficitur ante, sit amet venenatis nulla. Duis tempor vitae nibh in ornare. </p>
+		</div>
+
+	</section>
+
+
+	<section class="form-registration" id="form-registration">
+		<h2>User registration</h2>
+
+	</section>
+
+
+
+	<section id="bikers" class="bikers">
+		<h2>Bikers</h2>
+
+
+	</section>
+
+
+	<footer>
+		<div class="copyright">Venturus Dummy 2014</div>
+		<div class="version">Version1.14</div>
+	</footer>
+
+
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
+	<script src="js/app.js"></script>
 
 </body>
-
-
-
-
 </html>
