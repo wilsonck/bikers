@@ -70,9 +70,11 @@
 
 	<!-- SECTION MESSAGE HELP -->
 	<section class="help container_12" id="help">
-		<header>
+		<header id="header-help">
 			<h3>Help</h3>
-			<button id="close" class="close">Open ↑</button>
+			<button id="open" class="open">Open ↓</button>
+			<button id="close" class="close hidden">Close ↑</button>
+			
 		</header>
 		<div class="content-help" id="content-help">
 			<p><i class="fa fa-life-ring"></i> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut eget pulvinar nunc. Integer posuere pellentesque nibh, at porta risus aliquet vitae. Proin pellentesque felis nulla, sed elementum lacus euismod porta. Nunc sem nisi, sagittis a metus non, rhoncus tempor ipsum. Nunc augue sem, gravida a eros eu, posuere volutpat lacus. Integer luctus diam ut quam vehicula, sit amet porttitor enim sodales.</p>
@@ -91,7 +93,7 @@
 		<h2>User registration</h2>
 		<form id='form-add-bikers'>
 			<!-- INPUTS LEFT -->
-			<div class="grid_5">
+			<div class="grid_5" id="fields-left">
 				<div class="row-inputs">
 					<label for="name">Full name</label>
 					<input type="text" name="name" id="name" required>
@@ -99,7 +101,7 @@
 				</div>
 				<div class="row-inputs">
 					<label for="email">E-mail</label>
-					<input type="email" name="email" id="emails" required>
+					<input type="email" name="email" id="email" required>
 					<div class="help-input">Enter your email</div>
 				</div>
 				<div class="row-inputs">
@@ -108,21 +110,32 @@
 					<div class="help-input">Enter your city</div>
 				</div>
 			</div>
+			<!-- ENDS LEFT -->
 			<!-- INPUTS RIGHT -->
 			<div class="grid_6 fields-right">
 				<div class="row-inputs">
-					<label for="name">Ride in group</label>
+					<h4>Ride in group</h4>
+					<label for="always" class="css-label radGroup1"><input type="radio" name="ride-group" id="always" class="always" class="css-checkbox" /> Always</label>
+					<label for="sometimes" class="css-label radGroup1"><input type="radio" name="ride-group" id="sometimes" class="sometimes" class="css-checkbox" /> Sometimes</label>
+					<label for="never" class="css-label radGroup1"><input type="radio" name="ride-group" id="never" class="never" class="css-checkbox" /> Never</label>
+				</div>
+				<div class="row-inputs">
+					<h4>Days of the week</h4>
+					<input type="checkbox" name="Sun" value="Sun"> Sun<br>
+					<input type="checkbox" name="Mon" value="Mon"> Mon<br>
+					<input type="checkbox" name="Tue" value="Tue"> Tue<br>
+					<input type="checkbox" name="Wed" value="Wed"> Wed<br>
+					<input type="checkbox" name="Sun" value="Thu"> Thu<br>
+					<input type="checkbox" name="Sun" value="Fri"> Fri<br>
+					<input type="checkbox" name="Sat" value="Sat"> Sat<br>
 
 				</div>
 				<div class="row-inputs">
-					<label for="name">Days of the week</label>
-
-				</div>
-				<div class="row-inputs">
-					<button id="btn-cancel" class="cancel">Cancel</button>
-					<button id="btn-save" class="save">Save</button>
+					<button id="btn-save" class="btn-save">Save</button>
+					<button id="btn-cancel" class="btn-cancel">Cancel</button>
 				</div>
 			</div>
+			<!-- END RIGHT -->
 		</form>
 	</section>
 	<!-- END FORM -->
@@ -140,6 +153,20 @@
 			<div class="grid_2">Registration day</div>
 			<div class="grid_1"></div>
 		</header>
+
+		
+
+		<div class="list-bikers" ng-repeat="biker in bikers">
+			<div class="grid_2">James Isaac Neutron</div>
+			<div class="grid_2">neutron@example.com</div>
+			<div class="grid_1">Campinas</div>
+			<div class="grid_2">Always</div>
+			<div class="grid_2">Mon, Wed, Fri</div>
+			<div class="grid_2">08/13/2013 <span>11:29AM</span></div>
+			<div class="grid_1 button-delete">
+				<button id="btn-delete" ng-click="deleteBikers(biker)"><i class="fa fa-trash-o"></i></button>
+			</div>
+		</div>
 
 		<!-- ROW REPEAT -->
 		<div class="list-bikers">
@@ -189,6 +216,7 @@
 	</footer>
 
 
+	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
 	<script src="js/app.js"></script>
 

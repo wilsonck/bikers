@@ -28,6 +28,9 @@ ul li {
   list-style-type: none;
   float: left;
 }
+.hidden {
+  display: none;
+}
 /*********** HEADER ******************/
 header {
   margin-top: 8px;
@@ -155,6 +158,7 @@ header .data-user a:hover {
   padding: 15px 0;
   margin: 0;
   border-bottom: 1px solid #dbdbdb;
+  cursor: pointer;
 }
 .help header h3 {
   display: inline-block;
@@ -162,6 +166,7 @@ header .data-user a:hover {
   font-size: 1.5em;
   margin: 0 0 0 15px;
 }
+.help header .open,
 .help header .close {
   border: none;
   background: none;
@@ -169,7 +174,11 @@ header .data-user a:hover {
   float: right;
   margin-right: 15px;
 }
+.help .content-help-open {
+  display: block !important;
+}
 .help .content-help {
+  display: none;
   padding: 15px;
   font-size: 1.3em;
   line-height: 1.4em;
@@ -189,13 +198,21 @@ header .data-user a:hover {
   width: 100%;
   height: 110px;
 }
-.form-registration .row-inputs label {
+.form-registration .row-inputs label,
+.form-registration .row-inputs h4 {
   width: 100%;
   font-size: 1.4em;
   font-weight: bold;
   color: #333333;
   float: left;
   margin-bottom: 5px;
+}
+.form-registration .row-inputs label span,
+.form-registration .row-inputs h4 span {
+  color: #999999;
+  font-size: 0.8em;
+  float: right;
+  font-weight: normal;
 }
 .form-registration .row-inputs input[type="text"],
 .form-registration .row-inputs input[type="email"] {
@@ -211,12 +228,31 @@ header .data-user a:hover {
 .form-registration .row-inputs input[type="text"]:focus,
 .form-registration .row-inputs input[type="email"]:focus {
   border: 2px solid #369f0f;
+  outline: none;
 }
 .form-registration .row-inputs .help-input {
   width: 100%;
   margin-top: 10px;
   color: #999999;
   font-size: 1.2em;
+  display: none;
+}
+.form-registration .row-inputs .btn-save,
+.form-registration .row-inputs .btn-cancel {
+  float: right;
+  font-size: 1.4em;
+  padding: 7px 25px;
+  background: #999999;
+  color: #333333;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  margin-top: 31px;
+}
+.form-registration .row-inputs .btn-save {
+  background: #369f0f;
+  color: #fff;
+  margin-left: 15px;
 }
 .form-registration .fields-right {
   float: right;

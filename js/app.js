@@ -4,8 +4,35 @@ var app = angular.module('bikersApp', []);
 
 app.controller('bikersCtrl', ['$scope', '$http', 'bikersService', '$sce', function ($scope, $http, bikersService, $sce) {
 
+
+    $( "#header-help" ).click(function() {
+      $('#content-help').toggle('slow');
+      ($('.open').hasClass('hidden')) ? $('.open').removeClass('hidden') : $('.open').addClass('hidden');
+      ($('.close').hasClass('hidden')) ? $('.close').removeClass('hidden') : $('.close').addClass('hidden');
+    });
+
+    $( "input[type=text], input[type=email]" ).focus(function() {
+        $( this ).next().show();
+    })
+    
+    $( "input[type=text], input[type=email]" ).blur(function(){
+        $( this ).next().hide();
+    });
+
+
+
+    /*document.getElementById('header-help').addEventListener('click', openCloseHelp);
+
+    function openCloseHelp(){
+        var _element = document.getElementById('content-help').style;
+        (function cresce(){ 
+            (_element.clientHeight())
+            (_element.clientHeight +=1) >= 200 ? _element.clientHeight +=1 : setTimeout(cresce,40);
+        })();
+    }*/
+
 	bikersService.BikersOpenData().then(function (_result) {
-        //console.log(_result);
+        console.log(_result);
     }, function (_result) {
         console.log(_result);
     });
@@ -53,16 +80,6 @@ app.controller('bikersCtrl', ['$scope', '$http', 'bikersService', '$sce', functi
                 alert( "failure message: " + JSON.stringify({data: data}));
             });
 
-            /*return $http.post('json/bikers.json', _dataPut).then(function (_result) {
-                console.log(_result);
-                if (typeof _result.data === 'object') {
-                    return _result.data;
-                } else {
-                    $q.reject(_result.data);
-                }
-            }, function (_result) {
-                return $q.reject(_result);
-            });*/
         }
     };
 }]);

@@ -14,8 +14,6 @@ body{
 	color:@gray;
 }
 
-
-
 /*************** Mixins ******************/
 
 .border-radius(@radius:5px) {
@@ -46,6 +44,10 @@ ul {
 		list-style-type: none;
 		float: left;
 	}
+}
+
+.hidden{
+	display: none;
 }
 
 /*********** HEADER ******************/
@@ -179,13 +181,14 @@ header{
 		padding: 15px 0;
 		margin:0;
 		border-bottom: 1px solid #dbdbdb;
+		cursor:pointer;
 		h3{
 			display: inline-block;
 			color: @graydark;
 			font-size:1.5em;
 			margin:0 0 0 15px;
 		}
-		.close{
+		.open, .close{
 			border:none;
 			background: none;
 			color:@green;
@@ -194,7 +197,11 @@ header{
 
 		}
 	}
+	.content-help-open{
+		display:block !important;
+	}
 	.content-help{
+		display:none;
 		padding:15px;
 		font-size:1.3em;
 		line-height: 1.4em;
@@ -216,13 +223,19 @@ header{
 	.row-inputs{
 		width:100%;
 		height: 110px;
-		label{
+		label, h4{
 			width:100%;
 			font-size:1.4em;
 			font-weight: bold;
 			color: @graydark;
 			float: left;
 			margin-bottom: 5px;
+			span{
+				color: @graylight;
+				font-size:0.8em;
+				float:right;
+				font-weight: normal;
+			}
 		}
 		input[type="text"], input[type="email"]{
 			width:100%;
@@ -233,6 +246,7 @@ header{
 			margin-top:5px;
 			&:focus{
 				border:2px solid @green;
+				outline:none;
 			}
 		}
 		.help-input{
@@ -240,7 +254,23 @@ header{
 			margin-top: 10px;
 			color: @graylight;
 			font-size:1.2em;
+			display: none;
 		}
+		.btn-save, .btn-cancel{
+			float:right;
+			font-size:1.4em;
+			padding:7px 25px;
+			background: @graylight;
+			color:@graydark;
+			.border-radius;
+			margin-top:31px;
+		}
+		.btn-save{
+			background: @green;
+			color:#fff;
+			margin-left: 15px;
+		}	
+
 	}
 	.fields-right{
 		float:right;
