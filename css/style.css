@@ -7,12 +7,15 @@ body {
   font-family: 'Helvetica', Arial;
   color: #666666;
 }
+/*************** Mixins ******************/
 /********** CSS RESET ****************/
 a {
   text-decoration: none;
 }
 button {
   cursor: pointer;
+  border: none;
+  background: none;
 }
 button:focus {
   outline: 0 !important;
@@ -32,8 +35,7 @@ header {
   overflow: hidden;
 }
 header .menu-title .menu {
-  border: none;
-  background: none;
+  margin-left: -6px;
 }
 header .menu-title .menu i {
   color: #369f0f;
@@ -93,35 +95,178 @@ header .data-user a:hover {
   width: 100%;
   background: #f0f0f0;
   border-top: 1px solid #DBDBDB;
-  padding: 20px 0;
+  margin-bottom: 50px;
 }
-.section-info-page .data-info-page {
+.section-info-page .data-info-page,
+.section-info-page .responsabily {
   color: #999999;
-  margin-top: 11px;
+  margin: 31px 0 20px;
 }
-.section-info-page .data-info-page i {
+.section-info-page .data-info-page i,
+.section-info-page .responsabily i {
   font-size: 4em;
   float: left;
   margin-right: 15px;
 }
-.section-info-page .data-info-page h3 {
+.section-info-page .data-info-page h3,
+.section-info-page .responsabily h3 {
   display: inline-block;
   font-size: 1.2em;
   width: 100px;
   margin: 3px 0 5px;
   font-weight: normal;
 }
-.section-info-page .data-info-page span {
-  font-size: 1.6em;
+.section-info-page .data-info-page span,
+.section-info-page .responsabily span {
+  font-size: 1.5em;
   color: #333333;
   font-weight: bold;
   width: 100px;
 }
-.section-info-page .data-info-page .info-mode {
+.section-info-page .info-mode {
   width: 200px;
 }
 .section-info-page .responsabily {
   float: right;
   text-align: right;
   margin-right: 0;
+  width: 134px;
+}
+.section-info-page .responsabily i,
+.section-info-page .responsabily span {
+  color: #369f0f;
+}
+.section-info-page .responsabily h3,
+.section-info-page .responsabily span {
+  float: left;
+  text-align: left;
+  width: auto;
+}
+/*********** SECTION HELP **************/
+.help {
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  border: 1px solid #dbdbdb;
+  margin-bottom: 30px;
+}
+.help header {
+  background: #f0f0f0;
+  padding: 15px 0;
+  margin: 0;
+  border-bottom: 1px solid #dbdbdb;
+}
+.help header h3 {
+  display: inline-block;
+  color: #333333;
+  font-size: 1.5em;
+  margin: 0 0 0 15px;
+}
+.help header .close {
+  border: none;
+  background: none;
+  color: #369f0f;
+  float: right;
+  margin-right: 15px;
+}
+.help .content-help {
+  padding: 15px;
+  font-size: 1.3em;
+  line-height: 1.4em;
+}
+.help .content-help i {
+  font-size: 9em;
+  float: left;
+  color: #999999;
+  margin: 0 25px 10px 0;
+}
+/************** FORM ***********************/
+.form-registration h2 {
+  color: #333333;
+  font-size: 3.4em;
+}
+.form-registration .row-inputs {
+  width: 100%;
+  height: 110px;
+}
+.form-registration .row-inputs label {
+  width: 100%;
+  font-size: 1.4em;
+  font-weight: bold;
+  color: #333333;
+  float: left;
+  margin-bottom: 5px;
+}
+.form-registration .row-inputs input[type="text"],
+.form-registration .row-inputs input[type="email"] {
+  width: 100%;
+  border: 2px solid #DBDBDB;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  font-size: 1.6em;
+  padding: 5px 0;
+  margin-top: 5px;
+}
+.form-registration .row-inputs input[type="text"]:focus,
+.form-registration .row-inputs input[type="email"]:focus {
+  border: 2px solid #369f0f;
+}
+.form-registration .row-inputs .help-input {
+  width: 100%;
+  margin-top: 10px;
+  color: #999999;
+  font-size: 1.2em;
+}
+.form-registration .fields-right {
+  float: right;
+}
+/********* List bikers ****************/
+.bikers h2 {
+  color: #333333;
+  font-size: 3.4em;
+}
+.bikers header {
+  border-bottom: 1px solid #154A02;
+  border-top: 1px solid #154A02;
+  background: #369f0f;
+  padding: 25px 10px 15px;
+  color: #fff;
+  font-size: 1.2em;
+}
+.bikers .list-bikers {
+  padding: 20px 0 32px 10px;
+  font-size: 1.4em;
+  color: #333333;
+  line-height: 1.4em;
+}
+.bikers .list-bikers .button-delete {
+  margin-right: 5px;
+}
+.bikers .list-bikers .button-delete button {
+  float: right;
+  font-size: 1.2em;
+  margin-top: -6px;
+}
+.bikers .row-background {
+  background: #F4F4F4;
+}
+.bikers .row-mouse-over {
+  background: #C5DFBC;
+}
+/************** FOOTER ****************/
+footer {
+  border-top: 1px solid #333333;
+  margin: 70px 0 20px 0;
+}
+footer .copyright,
+footer .version {
+  display: inline-block;
+  color: #999999;
+  font-size: 1.2em;
+  margin-top: 20px;
+}
+footer .version {
+  float: right;
+  font-weight: bold;
 }

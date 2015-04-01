@@ -6,7 +6,6 @@
 @backgroundgray: #F0F0F0;
 
 
-
 body{
 	padding:0;
 	margin: 0;
@@ -16,6 +15,15 @@ body{
 }
 
 
+
+/*************** Mixins ******************/
+
+.border-radius(@radius:5px) {
+  -webkit-border-radius: @radius;
+     -moz-border-radius: @radius;
+          border-radius: @radius;
+}
+
 /********** CSS RESET ****************/
 
 a{
@@ -24,6 +32,8 @@ a{
 
 button{
 	cursor:pointer;
+	border:none;
+	background: none;
 	&:focus{
 		outline:0 !important;
 	}
@@ -46,8 +56,7 @@ header{
 	overflow: hidden;
 	.menu-title{
 		.menu{
-			border:none;
-			background:none;
+			margin-left:-6px;
 			i{
 				color:@green;
 				font-size:2em;
@@ -115,10 +124,10 @@ header{
 	width: 100%;
 	background:@backgroundgray;
 	border-top:1px solid #DBDBDB;
-	padding:20px 0;
+	margin-bottom: 50px;
 	.data-info-page{
 		color: @graylight;
-		margin-top:11px;
+		margin:31px 0 20px;
 		i{
 			font-size: 4em;
 			float: left;
@@ -132,25 +141,165 @@ header{
 			font-weight: normal
 		}
 		span{
-			font-size:1.6em;
+			font-size:1.5em;
 			color:@graydark;
 			font-weight: bold;
 			width:100px;
 		}
-		.info-mode{
-			width:200px;
-		}
+	}
+	.info-mode{
+		width:200px;
 	}
 	.responsabily{
-		&:extend(.data-info-page);
+		&:extend(.section-info-page .data-info-page all);
 		float:right;
 		text-align: right;
 		margin-right: 0;
+		width: 134px;
+		i, span{
+			color:@green;
+		}
+		h3, span{
+			float: left;
+			text-align: left;
+			width: auto;
+		}
 	}
 }
 
 
+/*********** SECTION HELP **************/
 
+.help{
+	.border-radius;
+	border:1px solid #dbdbdb;
+	margin-bottom: 30px;
+	header{
+		background: @backgroundgray;
+		padding: 15px 0;
+		margin:0;
+		border-bottom: 1px solid #dbdbdb;
+		h3{
+			display: inline-block;
+			color: @graydark;
+			font-size:1.5em;
+			margin:0 0 0 15px;
+		}
+		.close{
+			border:none;
+			background: none;
+			color:@green;
+			float:right;
+			margin-right: 15px;
+
+		}
+	}
+	.content-help{
+		padding:15px;
+		font-size:1.3em;
+		line-height: 1.4em;
+		i{
+			font-size:9em;
+			float:left;
+			color: @graylight;
+			margin:0 25px 10px 0;
+		}
+	}
+}
+
+/************** FORM ***********************/
+.form-registration{
+	h2{
+		color: @graydark;
+		font-size: 3.4em;
+	}
+	.row-inputs{
+		width:100%;
+		height: 110px;
+		label{
+			width:100%;
+			font-size:1.4em;
+			font-weight: bold;
+			color: @graydark;
+			float: left;
+			margin-bottom: 5px;
+		}
+		input[type="text"], input[type="email"]{
+			width:100%;
+			border:2px solid #DBDBDB;
+			.border-radius;
+			font-size:1.6em;
+			padding:5px 0;
+			margin-top:5px;
+			&:focus{
+				border:2px solid @green;
+			}
+		}
+		.help-input{
+			width:100%;
+			margin-top: 10px;
+			color: @graylight;
+			font-size:1.2em;
+		}
+	}
+	.fields-right{
+		float:right;
+	}
+}
+
+
+/********* List bikers ****************/
+.bikers{
+	h2{
+		color: @graydark;
+		font-size: 3.4em;
+	}
+	header{
+		border-bottom: 1px solid #154A02;
+		border-top: 1px solid #154A02;
+		background: @green;
+		padding:25px 10px 15px;
+		color:#fff;
+		font-size:1.2em;
+	}
+	.list-bikers{
+		padding:20px 0 32px 10px;
+		font-size:1.4em;
+		color:@graydark;
+		line-height: 1.4em;
+		.button-delete{
+			margin-right: 5px;
+			button{
+				float:right;
+				font-size:1.2em;
+				margin-top:-6px;
+			}
+		}
+	}
+	.row-background{
+		background: #F4F4F4;
+	}
+	.row-mouse-over{
+		background: #C5DFBC;
+	}
+}
+
+
+/************** FOOTER ****************/
+footer{
+	border-top:1px solid @graydark;
+	margin:70px 0 20px 0;
+	.copyright, .version{
+		display: inline-block;
+		color:@graylight;
+		font-size:1.2em;
+		margin-top:20px;
+	}
+	.version{
+		float:right;
+		font-weight: bold;
+	}
+}
 
 
 

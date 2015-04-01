@@ -41,6 +41,7 @@
 	</nav>
 	<!-- END BREADCRUMB -->
 	
+	<!-- SECTION INFORMATION SECTOR -->
 	<section class="section-info-page" id="section-info-page">
 		<div class="container_12">
 			<div class="grid_2 data-info-page">
@@ -65,34 +66,13 @@
 			</div>
 		</div>
 	</section>
+	<!-- END SECTION -->
 
-	<div class="container_12">
-		<div class="content">
-			<table>
-				<thead>
-	    			<tr>
-	    				<th>Tempo</th>
-	    				<th>Tipo</th>
-	    				<th>Data</th>
-	    				<th>Excluir</th>
-	    			</tr>
-				</thead>
-				<tbody>
-		    		<tr ng-repeat="exercise in dataExercises">
-			    		<td>{{ exercise.tempo }}</td>
-			    		<td>{{ exercise.tipo }}</td>
-			    		<td>{{ exercise.data }}</td>
-			    		<td><a href="#" ng-click="deleteExercise(exercise)">excluir</a></td>
-		    		</tr>
-			    </tbody>
-	    	</table>
-		</div>
-	</div>
-
+	<!-- SECTION MESSAGE HELP -->
 	<section class="help container_12" id="help">
 		<header>
 			<h3>Help</h3>
-			<button id="close" class="close">Close</button>
+			<button id="close" class="close">Open ↑</button>
 		</header>
 		<div class="content-help" id="content-help">
 			<p><i class="fa fa-life-ring"></i> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut eget pulvinar nunc. Integer posuere pellentesque nibh, at porta risus aliquet vitae. Proin pellentesque felis nulla, sed elementum lacus euismod porta. Nunc sem nisi, sagittis a metus non, rhoncus tempor ipsum. Nunc augue sem, gravida a eros eu, posuere volutpat lacus. Integer luctus diam ut quam vehicula, sit amet porttitor enim sodales.</p>
@@ -103,25 +83,109 @@
 		</div>
 
 	</section>
+	<!-- END HELP -->
 
 
-	<section class="form-registration" id="form-registration">
+	<!-- FORM ADD BIKERS -->
+	<section class="form-registration container_12" id="form-registration">
 		<h2>User registration</h2>
+		<form id='form-add-bikers'>
+			<!-- INPUTS LEFT -->
+			<div class="grid_5">
+				<div class="row-inputs">
+					<label for="name">Full name</label>
+					<input type="text" name="name" id="name" required>
+					<div class="help-input">Enter your full name</div>
+				</div>
+				<div class="row-inputs">
+					<label for="email">E-mail</label>
+					<input type="email" name="email" id="emails" required>
+					<div class="help-input">Enter your email</div>
+				</div>
+				<div class="row-inputs">
+					<label for="city">City <span>optional</span></label>
+					<input type="text" name="city" id="city" required>
+					<div class="help-input">Enter your city</div>
+				</div>
+			</div>
+			<!-- INPUTS RIGHT -->
+			<div class="grid_6 fields-right">
+				<div class="row-inputs">
+					<label for="name">Ride in group</label>
 
+				</div>
+				<div class="row-inputs">
+					<label for="name">Days of the week</label>
+
+				</div>
+				<div class="row-inputs">
+					<button id="btn-cancel" class="cancel">Cancel</button>
+					<button id="btn-save" class="save">Save</button>
+				</div>
+			</div>
+		</form>
 	</section>
+	<!-- END FORM -->
 
 
-
-	<section id="bikers" class="bikers">
+	<!-- LIST BIKERS -->
+	<section id="bikers" class="bikers container_12">
 		<h2>Bikers</h2>
+		<header class="header-bikers">
+			<div class="grid_2">Full name</div>
+			<div class="grid_2">E-mail</div>
+			<div class="grid_1">City</div>
+			<div class="grid_2">Ride in group</div>
+			<div class="grid_2">Days of de week</div>
+			<div class="grid_2">Registration day</div>
+			<div class="grid_1"></div>
+		</header>
 
+		<!-- ROW REPEAT -->
+		<div class="list-bikers">
+			<div class="grid_2">James Isaac Neutron</div>
+			<div class="grid_2">neutron@example.com</div>
+			<div class="grid_1">Campinas</div>
+			<div class="grid_2">Always</div>
+			<div class="grid_2">Mon, Wed, Fri</div>
+			<div class="grid_2">08/13/2013 <span>11:29AM</span></div>
+			<div class="grid_1 button-delete">
+				<button id="btn-delete"><i class="fa fa-trash-o"></i></button>
+			</div>
+		</div>
+		<div class="list-bikers row-background">
+			<div class="grid_2">James Isaac Neutron</div>
+			<div class="grid_2">neutron@example.com</div>
+			<div class="grid_1">Campinas</div>
+			<div class="grid_2">Always</div>
+			<div class="grid_2">Mon, Wed, Fri</div>
+			<div class="grid_2">08/13/2013 <span>11:29AM</span></div>
+			<div class="grid_1 button-delete">
+				<button id="btn-delete"><i class="fa fa-trash-o"></i></button>
+			</div>
+		</div>
+		<div class="list-bikers row-mouse-over">
+			<div class="grid_2">James Isaac Neutron</div>
+			<div class="grid_2">neutron@example.com</div>
+			<div class="grid_1">Campinas</div>
+			<div class="grid_2">Always</div>
+			<div class="grid_2">Mon, Wed, Fri</div>
+			<div class="grid_2">08/13/2013 <span>11:29AM</span></div>
+			<div class="grid_1 button-delete">
+				<button id="btn-delete"><i class="fa fa-trash-o"></i></button>
+			</div>
+		</div>
+		<!-- END REPEAT -->
 
 	</section>
+	<!-- END LIST -->
 
 
 	<footer>
-		<div class="copyright">Venturus Dummy 2014</div>
-		<div class="version">Version1.14</div>
+		<div class="container_12">
+			<div class="copyright">Venturus Dummy 2014</div>
+			<div class="version">Version1.14</div>
+		</div>
 	</footer>
 
 

@@ -23,7 +23,7 @@ app.controller('bikersCtrl', ['$scope', '$http', 'bikersService', '$sce', functi
 			]
 		};
 
-		bikersService.addBikers(dataPUT);
+		//bikersService.addBikers(dataPUT);
 		//console.log(dataPUT);
 
 
@@ -44,7 +44,17 @@ app.controller('bikersCtrl', ['$scope', '$http', 'bikersService', '$sce', functi
         },
 
         addBikers: function (_dataPut) {
-            return $http.put('json/bikers.json', _dataPut).then(function (_result) {
+            
+            var res = $http.put('json/bikers.json', _dataPut);
+            res.success(function(data, status, headers, config) {
+                console.log(data);
+            });
+            res.error(function(data, status, headers, config) {
+                alert( "failure message: " + JSON.stringify({data: data}));
+            });
+
+            /*return $http.post('json/bikers.json', _dataPut).then(function (_result) {
+                console.log(_result);
                 if (typeof _result.data === 'object') {
                     return _result.data;
                 } else {
@@ -52,7 +62,7 @@ app.controller('bikersCtrl', ['$scope', '$http', 'bikersService', '$sce', functi
                 }
             }, function (_result) {
                 return $q.reject(_result);
-            });
+            });*/
         }
     };
 }]);
