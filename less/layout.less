@@ -1,11 +1,155 @@
+/*********** variable color ***********/
 @green: #369F0F;
 @graydark: #333333;
-@graylight: #666666;
+@gray: #666666;
+@graylight: #999999;
+@backgroundgray: #F0F0F0;
+
+
 
 body{
+	padding:0;
 	margin: 0;
+	font-size: 62.5%; /* defined font pattern - 10px*/
+	font-family: 'Helvetica', Arial;
+	color:@gray;
 }
 
-#teste{
-	background: red;
+
+/********** CSS RESET ****************/
+
+a{
+	text-decoration: none;
 }
+
+button{
+	cursor:pointer;
+	&:focus{
+		outline:0 !important;
+	}
+}
+
+ul {
+	margin:0;
+	padding: 0;
+	li{
+		list-style-type: none;
+		float: left;
+	}
+}
+
+/*********** HEADER ******************/
+
+header{
+	margin-top:8px;
+	border-bottom: 1px solid @graydark;
+	overflow: hidden;
+	.menu-title{
+		.menu{
+			border:none;
+			background:none;
+			i{
+				color:@green;
+				font-size:2em;
+			}
+		}
+		h1{
+			display: inline-block;
+			color: @graydark;
+			margin-left:5px;
+		}
+	}
+	.data-user{
+		float:right;
+		color:@graydark;
+		font-size:1.4em;
+		margin:11px 0 0 ;
+		text-align: right;
+		i{
+			color:@green;
+			font-size:1.5em;
+			margin-right: 10px;
+		}
+		a{
+			color:@graydark;
+			&:hover{
+				color:@green;
+				text-decoration: underline;
+			}
+		}
+	}
+}
+
+/************** BREADCRUMB ******************/
+
+.breadcrumb{
+	ul{
+		margin:15px 0 10px;
+		font-size:1.2em;
+		li{
+			margin-right: 7px;
+			line-height: 1.9em;
+			i{
+				color:@green;
+				font-size:1.5em;
+			}
+			a{
+				color:@green;
+				&:hover{
+					text-decoration:underline;
+				}
+			}
+			span{
+				color:#E8E8E8;
+				margin:0 6px;
+				font-size:1.2em;
+			}
+		}
+	}
+}
+
+/******* SECTION PAGE ************/
+
+.section-info-page{
+	float:left;
+	width: 100%;
+	background:@backgroundgray;
+	border-top:1px solid #DBDBDB;
+	padding:20px 0;
+	.data-info-page{
+		color: @graylight;
+		margin-top:11px;
+		i{
+			font-size: 4em;
+			float: left;
+			margin-right: 15px;
+		}
+		h3{
+			display: inline-block;
+			font-size:1.2em;
+			width:100px;
+			margin:3px 0 5px;
+			font-weight: normal
+		}
+		span{
+			font-size:1.6em;
+			color:@graydark;
+			font-weight: bold;
+			width:100px;
+		}
+		.info-mode{
+			width:200px;
+		}
+	}
+	.responsabily{
+		float:right;
+		text-align: right;
+		margin-right: 0;
+	}
+}
+
+
+
+
+
+
