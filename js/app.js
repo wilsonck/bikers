@@ -2,8 +2,18 @@
 
 var app = angular.module('bikersApp', []);
 
-app.controller('bikersCtrl', ['$scope', '$http', 'bikersService', '$sce', function ($scope, $http, bikersService, $sce) {
+app.controller('bikersCtrl', ['$scope', '$http', '$q', '$sce', function ($scope, $http, $q, $sce) {
 
+    /*Object days of week */
+    $scope.daysWeek = {
+       Sun : false,
+       Mon : false,
+       Tue : false,
+       Wed : false,
+       Thu : false,
+       Fri : false,
+       Sat : false
+     };
 
     $( "#header-help" ).click(function() {
       $('#content-help').toggle('slow');
@@ -26,18 +36,67 @@ app.controller('bikersCtrl', ['$scope', '$http', 'bikersService', '$sce', functi
     $scope.addBiker = function(biker){
         var dataToday = getDate();
         var hourNow = getHour();
-        var DaysWeek = 
+        var daysWeekChoose = daysChoose();
         $scope.bikers.push({
             name: $scope.input.name,
             email: $scope.input.email,
             city: $scope.input.city,
             rideGroup: $scope.input.rideGroup,
-            daysOfWeek: "Mon, Wed, Fri",
+            daysOfWeek: daysWeekChoose,
             registration:[{
                 date: dataToday,
                 hour: hourNow
             }]
-        });     
+        });  
+    }
+
+    /*********
+    /* Pega as variaves de escopo dos dias selecionados e compara
+    * se é fim de semana
+    * se é meio de semana
+    * se ele faz todos os dias
+    */
+    function daysChoose(){
+        var dayChoose = [];
+        for (var prop in $scope.daysWeek) {
+            if( $scope.daysWeek[prop] ) dayChoose.push(prop)
+        }
+        var daysWeek = ["Mon", "Tue", "Wed", "Thu", "Fri"];
+        var weekends = ["Sat", "Sun"];
+        var amountLengthArry = dayChoose.length;
+        //Caso tenha 2 selecionado pode ser que ele faça aos fim de semana
+        if (amountLengthArry === 2){
+            for (var i = 0 ; i < amountLengthArry; i++) {
+                var dayCompare = dayChoose[i];
+                for (var j=0, totalArrayWeek = daysWeek.length; j < totalArrayWeek; j++){
+                    var dayWeek = daysWeek[j];
+                    if (dayWeek === dayCompare) { 
+                        return dayChoose;
+                    }
+                };
+            };
+            return 'Weekends';
+        // Se ele marcou 5 pode ser que faça no meio de semana    
+        }else if(amountLengthArry === 5){
+            for (var i = 0 ; i < amountLengthArry; i++) {
+                var dayCompare = dayChoose[i];
+                for (var j=0, totalArrayWeek = weekends.length; j < totalArrayWeek; j++){
+                    var dayWeek = weekends[j];
+                    if (dayWeek === dayCompare) { 
+                        return dayChoose;
+                    }
+                };
+            };
+            return 'Week Days';
+        // Se marcou 7 ele faz todos os dias
+        }else if(amountLengthArry === 7){
+            return 'Every day';
+        // Senão retorna os dias
+        }else{
+            return dayChoose;
+        }
+
+        console.log(dayChoose);
     }
 
     function getDate(){
@@ -69,65 +128,28 @@ app.controller('bikersCtrl', ['$scope', '$http', 'bikersService', '$sce', functi
         return hourComplete
     }
 
-    /*document.getElementById('header-help').addEventListener('click', openCloseHelp);
+    var promise = BikersOpenData();
 
-    function openCloseHelp(){
-        var _element = document.getElementById('content-help').style;
-        (function cresce(){ 
-            (_element.clientHeight())
-            (_element.clientHeight +=1) >= 200 ? _element.clientHeight +=1 : setTimeout(cresce,40);
-        })();
-    }*/
-
-	bikersService.BikersOpenData().then(function (_result) {
+    promise.then(function(_result) {
         $scope.bikers = _result.bikers;
-    }, function (_result) {
-        console.log(_result);
+    }, function(reason) {
+        alert('Failed: ' + _result);
     });
 
-    var dataPUT = {
-			"name":"James Isaac Neutron",
-			"email":"neutron@example.com",
-			"city":"Campinas",
-			"rideGroup":"Always",
-			"daysOfWeek":"Mon, Wed, Fri",
-			"registration":[{
-					"date":"08/13/2013",
-					"hour":"11:29AM"
-				}
-			]
-		};
+    function BikersOpenData(){
+        var deferred = $q.defer();
+        $http.get('json/bikers.json').then(function (_result) {
+            if (typeof _result.data === 'object') {
+                deferred.resolve(_result.data);
+            } else {
+                console.log('erro -->',_result);
+                $q.reject(_result.data);
+            }
+       }, function (_result) {
+            console.log('erro -->',_result);
+            deferred.reject(_result);
+        });
+        return deferred.promise;
+    }
 
-		//bikersService.addBikers(dataPUT);
-		//console.log(dataPUT);
-
-
-}]).factory('bikersService', ['$http', '$q', function ($http, $q) {
-    return {
-        BikersOpenData: function () {
-            return $http.get('json/bikers.json').then(function (_result) {
-                if (typeof _result.data === 'object') {
-                    return _result.data;
-                } else {
-                	console.log('erro -->',_result);
-                    $q.reject(_result.data);
-                }
-            }, function (_result) {
-            	console.log('erro -->',_result);
-                return $q.reject(_result);
-            });
-        },
-
-        addBikers: function (_dataPut) {
-            
-            var res = $http.put('json/bikers.json', _dataPut);
-            res.success(function(data, status, headers, config) {
-                console.log(data);
-            });
-            res.error(function(data, status, headers, config) {
-                alert( "failure message: " + JSON.stringify({data: data}));
-            });
-
-        }
-    };
-}]);
+}])
