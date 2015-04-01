@@ -104,17 +104,17 @@
 			<div class="grid_5" id="fields-left">
 				<div class="row-inputs">
 					<label for="name">Full name</label>
-					<input type="text" name="name" id="name" required>
+					<input type="text" name="name" id="name" ng-model="input.name" required>
 					<div class="help-input">Enter your full name</div>
 				</div>
 				<div class="row-inputs">
 					<label for="email">E-mail</label>
-					<input type="email" name="email" id="email" required>
+					<input type="email" name="email" id="email" ng-model="input.email" required>
 					<div class="help-input">Enter your email</div>
 				</div>
 				<div class="row-inputs">
 					<label for="city">City <span>optional</span></label>
-					<input type="text" name="city" id="city" required>
+					<input type="text" name="city" id="city" ng-model="input.city" required>
 					<div class="help-input">Enter your city</div>
 				</div>
 			</div>
@@ -123,23 +123,29 @@
 			<div class="grid_6 fields-right">
 				<div class="row-inputs">
 					<h4>Ride in group</h4>
-					<label for="always" class="css-label radGroup1"><input type="radio" name="ride-group" id="always" class="always" class="css-checkbox" /> Always</label>
-					<label for="sometimes" class="css-label radGroup1"><input type="radio" name="ride-group" id="sometimes" class="sometimes" class="css-checkbox" /> Sometimes</label>
-					<label for="never" class="css-label radGroup1"><input type="radio" name="ride-group" id="never" class="never" class="css-checkbox" /> Never</label>
+					<label for="always" class="css-label radGroup1">
+						<input type="radio" name="ride-group" ng-model="input.rideGroup" id="always" value="Always" class="css-checkbox" selected /> Always
+					</label>
+					<label for="sometimes" class="css-label radGroup1">
+						<input type="radio" name="ride-group" ng-model="input.rideGroup" id="sometimes" value="Sometimes" class="css-checkbox" /> Sometimes
+					</label>
+					<label for="never" class="css-label radGroup1">
+						<input type="radio" name="ride-group" ng-model="input.rideGroup" id="never" value="Never" class="css-checkbox" /> Never
+					</label>
 				</div>
 				<div class="row-inputs">
 					<h4>Days of the week</h4>
-					<input type="checkbox" name="Sun" value="Sun"> Sun<br>
-					<input type="checkbox" name="Mon" value="Mon"> Mon<br>
-					<input type="checkbox" name="Tue" value="Tue"> Tue<br>
-					<input type="checkbox" name="Wed" value="Wed"> Wed<br>
-					<input type="checkbox" name="Sun" value="Thu"> Thu<br>
-					<input type="checkbox" name="Sun" value="Fri"> Fri<br>
-					<input type="checkbox" name="Sat" value="Sat"> Sat<br>
+					<input type="checkbox" name="Sun" ng-model="Sun" value="Sun"> Sun<br>
+					<input type="checkbox" name="Mon" ng-model="Mon" value="Mon"> Mon<br>
+					<input type="checkbox" name="Tue" ng-model="Tue" alue="Tue"> Tue<br>
+					<input type="checkbox" name="Wed" ng-model="Wed" value="Wed"> Wed<br>
+					<input type="checkbox" name="Sun" ng-model="Thu" value="Thu"> Thu<br>
+					<input type="checkbox" name="Sun" ng-model="Fri" value="Fri"> Fri<br>
+					<input type="checkbox" name="Sat" ng-model="Sat" value="Sat"> Sat<br>
 
 				</div>
 				<div class="row-inputs">
-					<button id="btn-save" ng-click="deleteBiker(biker)" class="btn-save">Save</button>
+					<button id="btn-save" ng-click="addBiker()" class="btn-save">Save</button>
 					<button id="btn-cancel" ng-click="addBiker()" class="btn-cancel">Cancel</button>
 				</div>
 			</div>

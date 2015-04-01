@@ -24,10 +24,50 @@ app.controller('bikersCtrl', ['$scope', '$http', 'bikersService', '$sce', functi
     }
 
     $scope.addBiker = function(biker){
-        $scope.bikers.splice($scope.bikers.indexOf(biker), 1);       
+        var dataToday = getDate();
+        var hourNow = getHour();
+        var DaysWeek = 
+        $scope.bikers.push({
+            name: $scope.input.name,
+            email: $scope.input.email,
+            city: $scope.input.city,
+            rideGroup: $scope.input.rideGroup,
+            daysOfWeek: "Mon, Wed, Fri",
+            registration:[{
+                date: dataToday,
+                hour: hourNow
+            }]
+        });     
     }
 
+    function getDate(){
+        var today = new Date();
+        var dd = today.getDate();
+        var mm = today.getMonth()+1; //January is 0!
 
+        var yyyy = today.getFullYear();
+        if(dd<10){
+            dd='0'+dd
+        } 
+        if(mm<10){
+            mm='0'+mm
+        } 
+        var today = dd+'/'+mm+'/'+yyyy;
+        return today;
+    }
+
+    function getHour(){
+        var today = new Date();
+        var h = today.getHours();
+        var m = today.getMinutes();
+        if(m<10){
+            m='0'+m
+        } 
+        var AMPM = (h > 12) ? 'PM' : 'AM';
+        var s = today.getSeconds();
+        var hourComplete = h+":"+m+AMPM;
+        return hourComplete
+    }
 
     /*document.getElementById('header-help').addEventListener('click', openCloseHelp);
 
