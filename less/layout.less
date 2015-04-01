@@ -22,6 +22,12 @@ body{
           border-radius: @radius;
 }
 
+/******* MOUSE OVER ************/
+
+.list-bikers:hover > .button-delete .btn-delete{
+	display: block !important;
+}
+
 /********** CSS RESET ****************/
 
 a{
@@ -300,10 +306,19 @@ header{
 		.button-delete{
 			margin-right: 5px;
 			button{
+				display:none;
 				float:right;
 				font-size:1.2em;
 				margin-top:-6px;
 			}
+		}
+		.hour{
+			color:@graylight;
+			font-size:0.8em;
+			margin-left:3px;
+		}
+		&:hover{
+			background:#C5DFBC;
 		}
 	}
 	.row-background{

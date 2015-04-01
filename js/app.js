@@ -11,13 +11,21 @@ app.controller('bikersCtrl', ['$scope', '$http', 'bikersService', '$sce', functi
       ($('.close').hasClass('hidden')) ? $('.close').removeClass('hidden') : $('.close').addClass('hidden');
     });
 
-    $( "input[type=text], input[type=email]" ).focus(function() {
-        $( this ).next().show();
-    })
-    
-    $( "input[type=text], input[type=email]" ).blur(function(){
-        $( this ).next().hide();
-    });
+    $( "input[type=text], input[type=email]" )
+        .focus(function() {
+            $( this ).next().show();
+        })
+        .blur(function(){
+            $( this ).next().hide();
+        });
+
+    $scope.deleteBiker = function(biker){
+        $scope.bikers.splice($scope.bikers.indexOf(biker), 1);       
+    }
+
+    $scope.addBiker = function(biker){
+        $scope.bikers.splice($scope.bikers.indexOf(biker), 1);       
+    }
 
 
 
@@ -32,7 +40,7 @@ app.controller('bikersCtrl', ['$scope', '$http', 'bikersService', '$sce', functi
     }*/
 
 	bikersService.BikersOpenData().then(function (_result) {
-        console.log(_result);
+        $scope.bikers = _result.bikers;
     }, function (_result) {
         console.log(_result);
     });

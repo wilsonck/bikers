@@ -13,13 +13,62 @@
 			]
 		},
 		{
-			"name":"James Isaac Neutron",
-			"email":"neutron@example.com",
+			"name":"Carl Wheezer",
+			"email":"carl@example.com",
 			"city":"Campinas",
-			"rideGroup":"Always",
-			"daysOfWeek":"Mon, Wed, Fri",
+			"rideGroup":"Sometimes",
+			"daysOfWeek":"Week days",
 			"registration":[{
-					"date":"08/13/2013",
+					"date":"04/19/2013",
+					"hour":"00:29AM"
+				}
+			]
+		},
+		{
+			"name":"Cindy Vortex",
+			"email":"cindyvortex@example.com",
+			"city":"São Paulo",
+			"rideGroup":"Never",
+			"daysOfWeek":"Weekends",
+			"registration":[{
+					"date":"08/19/2013",
+					"hour":"11:29AM"
+				}
+			]
+		},
+		{
+			"name":"Sheen Estevez",
+			"email":"sheen@example.com",
+			"city":"São Paulo",
+			"rideGroup":"Sometimes",
+			"daysOfWeek":"Mon, Weed, Fri",
+			"registration":[{
+					"date":"08/19/2013",
+					"hour":"11:29AM"
+				}
+			]
+		},
+		{
+			"name":"Libby Folfax",
+			"email":"folfax2014@example.com",
+			"city":"Americana",
+			"rideGroup":"Sometimes",
+			"daysOfWeek":"Mon, Tue, Wed",
+			"registration":[{
+					"date":"08/19/2013",
+					"hour":"11:29AM"
+				}
+			]
+		}
+		,
+		{
+			"name":"Nick Dean",
+			"email":"nick@example.com",
+			"city":"Sumaré",
+			"rideGroup":"Always",
+			"daysOfWeek":"Fri, Sat",
+			"registration":[{
+					"date":"08/19/2013",
 					"hour":"11:29AM"
 				}
 			]

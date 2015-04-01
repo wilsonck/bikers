@@ -9,6 +9,14 @@
 
 	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 
+	<style>
+
+		/*.list-bikers:hover > .button-delete .btn-delete{
+			display: block !important;
+		}*/
+
+	</style>
+
 	<!--[if lt IE 9]>
 		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
 	<![endif]-->
@@ -131,8 +139,8 @@
 
 				</div>
 				<div class="row-inputs">
-					<button id="btn-save" class="btn-save">Save</button>
-					<button id="btn-cancel" class="btn-cancel">Cancel</button>
+					<button id="btn-save" ng-click="deleteBiker(biker)" class="btn-save">Save</button>
+					<button id="btn-cancel" ng-click="addBiker()" class="btn-cancel">Cancel</button>
 				</div>
 			</div>
 			<!-- END RIGHT -->
@@ -154,52 +162,16 @@
 			<div class="grid_1"></div>
 		</header>
 
-		
-
-		<div class="list-bikers" ng-repeat="biker in bikers">
-			<div class="grid_2">James Isaac Neutron</div>
-			<div class="grid_2">neutron@example.com</div>
-			<div class="grid_1">Campinas</div>
-			<div class="grid_2">Always</div>
-			<div class="grid_2">Mon, Wed, Fri</div>
-			<div class="grid_2">08/13/2013 <span>11:29AM</span></div>
-			<div class="grid_1 button-delete">
-				<button id="btn-delete" ng-click="deleteBikers(biker)"><i class="fa fa-trash-o"></i></button>
-			</div>
-		</div>
-
 		<!-- ROW REPEAT -->
-		<div class="list-bikers">
-			<div class="grid_2">James Isaac Neutron</div>
-			<div class="grid_2">neutron@example.com</div>
-			<div class="grid_1">Campinas</div>
-			<div class="grid_2">Always</div>
-			<div class="grid_2">Mon, Wed, Fri</div>
-			<div class="grid_2">08/13/2013 <span>11:29AM</span></div>
+		<div class="list-bikers" ng-repeat="biker in bikers" ng-class-odd="'row-background'">
+			<div class="grid_2"><span ng-bind='biker.name'></span></div>
+			<div class="grid_2"><span ng-bind='biker.email'></span></div>
+			<div class="grid_1"><span ng-bind='biker.city'></span></div>
+			<div class="grid_2"><span ng-bind='biker.rideGroup'></span></div>
+			<div class="grid_2"><span ng-bind='biker.daysOfWeek'></span></div>
+			<div class="grid_2"><span ng-bind='biker.registration[0].date'></span><span class='hour'><span ng-bind='biker.registration[0].hour'><span></span></div>
 			<div class="grid_1 button-delete">
-				<button id="btn-delete"><i class="fa fa-trash-o"></i></button>
-			</div>
-		</div>
-		<div class="list-bikers row-background">
-			<div class="grid_2">James Isaac Neutron</div>
-			<div class="grid_2">neutron@example.com</div>
-			<div class="grid_1">Campinas</div>
-			<div class="grid_2">Always</div>
-			<div class="grid_2">Mon, Wed, Fri</div>
-			<div class="grid_2">08/13/2013 <span>11:29AM</span></div>
-			<div class="grid_1 button-delete">
-				<button id="btn-delete"><i class="fa fa-trash-o"></i></button>
-			</div>
-		</div>
-		<div class="list-bikers row-mouse-over">
-			<div class="grid_2">James Isaac Neutron</div>
-			<div class="grid_2">neutron@example.com</div>
-			<div class="grid_1">Campinas</div>
-			<div class="grid_2">Always</div>
-			<div class="grid_2">Mon, Wed, Fri</div>
-			<div class="grid_2">08/13/2013 <span>11:29AM</span></div>
-			<div class="grid_1 button-delete">
-				<button id="btn-delete"><i class="fa fa-trash-o"></i></button>
+				<button class="btn-delete" ng-click="deleteBiker(biker)"><i class="fa fa-trash-o"></i></button>
 			</div>
 		</div>
 		<!-- END REPEAT -->

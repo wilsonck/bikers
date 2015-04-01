@@ -8,6 +8,10 @@ body {
   color: #666666;
 }
 /*************** Mixins ******************/
+/******* MOUSE OVER ************/
+.list-bikers:hover > .button-delete .btn-delete {
+  display: block !important;
+}
 /********** CSS RESET ****************/
 a {
   text-decoration: none;
@@ -280,9 +284,18 @@ header .data-user a:hover {
   margin-right: 5px;
 }
 .bikers .list-bikers .button-delete button {
+  display: none;
   float: right;
   font-size: 1.2em;
   margin-top: -6px;
+}
+.bikers .list-bikers .hour {
+  color: #999999;
+  font-size: 0.8em;
+  margin-left: 3px;
+}
+.bikers .list-bikers:hover {
+  background: #C5DFBC;
 }
 .bikers .row-background {
   background: #F4F4F4;
