@@ -1,0 +1,28 @@
+{
+	"bikers":[
+		{
+			"name":"James Isaac Neutron",
+			"email":"neutron@example.com",
+			"city":"Campinas",
+			"rideGroup":"Always",
+			"daysOfWeek":"Mon, Wed, Fri",
+			"registration":[{
+					"date":"08/13/2013",
+					"hour":"11:29AM"
+				}
+			]
+		},
+		{
+			"name":"James Isaac Neutron",
+			"email":"neutron@example.com",
+			"city":"Campinas",
+			"rideGroup":"Always",
+			"daysOfWeek":"Mon, Wed, Fri",
+			"registration":[{
+					"date":"08/13/2013",
+					"hour":"11:29AM"
+				}
+			]
+		}
+	]
+}

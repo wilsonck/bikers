@@ -1,24 +1,52 @@
+'use strict';
+
 var app = angular.module('bikersApp', []);
 
-app.controller('bikersCtrl', ['$scope', 'bikersService', '$sce', function ($scope, dribbleService, $sce) {
+app.controller('bikersCtrl', ['$scope', '$http', 'bikersService', '$sce', function ($scope, $http, bikersService, $sce) {
+
+	bikersService.BikersOpenData().then(function (_result) {
+        //console.log(_result);
+    }, function (_result) {
+        console.log(_result);
+    });
+
+    var dataPUT = {
+			"name":"James Isaac Neutron",
+			"email":"neutron@example.com",
+			"city":"Campinas",
+			"rideGroup":"Always",
+			"daysOfWeek":"Mon, Wed, Fri",
+			"registration":[{
+					"date":"08/13/2013",
+					"hour":"11:29AM"
+				}
+			]
+		};
+
+
+		bikersService.addBikers(dataPUT);
+		//console.log(dataPUT);
 
 
 }]).factory('bikersService', ['$http', '$q', function ($http, $q) {
     return {
-        getShotsApi: function (_page) {
-            return $http.jsonp('http://api.dribbble.com/shots/popular?per_page=16&page=' + _page + '&callback=JSON_CALLBACK').then(function (_result) {
+        BikersOpenData: function () {
+            return $http.get('json/bikers.json').then(function (_result) {
                 if (typeof _result.data === 'object') {
                     return _result.data;
                 } else {
+                	console.log('erro -->',_result);
                     $q.reject(_result.data);
                 }
             }, function (_result) {
+            	console.log('erro -->',_result);
                 return $q.reject(_result);
             });
         },
 
-        getShotDesc: function (_shotId) {
-            return $http.jsonp('http://api.dribbble.com/shots/' + _shotId + '?callback=JSON_CALLBACK').then(function (_result) {
+        addBikers: function (_dataPut) {
+        	console.log(_dataPut);
+            return $http.put('json/bikers.json').then(function (_result) {
                 if (typeof _result.data === 'object') {
                     return _result.data;
                 } else {
