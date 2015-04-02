@@ -12,6 +12,7 @@ body{
 	font-size: 62.5%; /* defined font pattern - 10px*/
 	font-family: 'Helvetica', Arial;
 	color:@gray;
+	min-width: 1200px;
 }
 
 /*************** Mixins ******************/
@@ -228,7 +229,10 @@ header{
 	}
 	.row-inputs{
 		width:100%;
-		height: 110px;
+		height: 120px;
+		p.help-block{
+			color:red;
+		}
 		label, h4{
 			width:100%;
 			font-size:1.4em;

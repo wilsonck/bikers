@@ -1,0 +1,86 @@
+@widthpatter: 70px;
+
+/*************** Mixins ******************/
+
+.create_grid(@width) {
+  width:(@widthpatter + @width);
+}
+
+
+/* Container
+----------------------------------------------------------------------------------------------------*/
+.container_12 {
+	margin-left: auto;
+	margin-right: auto;
+	width: 1200px;
+	overflow: hidden;
+}
+
+/* Grids
+----------------------------------------------------------------------------------------------------*/
+
+.grid_1,
+.grid_2,
+.grid_3,
+.grid_4,
+.grid_5,
+.grid_6,
+.grid_7,
+.grid_8,
+.grid_9,
+.grid_10,
+.grid_11,
+.grid_12 {
+	display:inline;
+	float: left;
+	position: relative;
+	margin-right: 30px;
+}
+
+ 
+
+
+/* Grid >> 12 Columns
+----------------------------------------------------------------------------------------------------*/
+
+.container_12{
+	.grid_1{ 
+		.create_grid(0)
+	}
+	.grid_2{ 
+		.create_grid(100)
+	}
+	.grid_3{ 
+		.create_grid(200)
+	}
+	.grid_4{ 
+		.create_grid(300)
+	}
+	.grid_5{ 
+		.create_grid(400)
+	}
+	.grid_6{ 
+		.create_grid(500)
+	}
+	.grid_7{ 
+		.create_grid(600)
+	}
+	.grid_8{ 
+		.create_grid(700)
+	}
+	.grid_9{ 
+		.create_grid(800)
+	}
+	.grid_10{ 
+		.create_grid(900)
+	}
+	.grid_11{ 
+		.create_grid(1000)
+	}
+	.grid_12{ 
+		.create_grid(1100);
+		margin-right: 0;
+	}
+}
+
+/************** FIM DA GRID ************/

@@ -15,7 +15,7 @@ module.exports = function(grunt) {
     },*/
 
     less: {
-      'css/style.css': ['less/layout.less']
+      'css/style.css': ['less/*.less']
     },
     /*Setup watch*/
     watch: {
