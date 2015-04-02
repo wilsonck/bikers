@@ -4,51 +4,121 @@ var app = angular.module('bikersApp', []);
 
 app.controller('bikersCtrl', ['$scope', '$http', '$q', '$sce', function ($scope, $http, $q, $sce) {
 
-    /*Object days of week */
-    $scope.daysWeek = {
-       Sun : false,
-       Mon : false,
-       Tue : false,
-       Wed : false,
-       Thu : false,
-       Fri : false,
-       Sat : false
-     };
+    var appBikers = appBikers || {};
 
-    $( "#header-help" ).click(function() {
-      $('#content-help').toggle('slow');
-      ($('.open').hasClass('hidden')) ? $('.open').removeClass('hidden') : $('.open').addClass('hidden');
-      ($('.close').hasClass('hidden')) ? $('.close').removeClass('hidden') : $('.close').addClass('hidden');
-    });
+    (function(){
+        appBikers = {
 
-    $( "input[type=text], input[type=email]" )
-        .focus(function() {
-            $( this ).next().show();
-        })
-        .blur(function(){
-            $( this ).next().hide();
-        });
+            init : function(){ 
 
-    $scope.deleteBiker = function(biker){
-        $scope.bikers.splice($scope.bikers.indexOf(biker), 1);       
-    }
+                this.fnEvents();
+                this.fnEventsScope();
 
-    $scope.addBiker = function(biker){
-        var dataToday = getDate();
-        var hourNow = getHour();
-        var daysWeekChoose = daysChoose();
-        $scope.bikers.push({
-            name: $scope.input.name,
-            email: $scope.input.email,
-            city: $scope.input.city,
-            rideGroup: $scope.input.rideGroup,
-            daysOfWeek: daysWeekChoose,
-            registration:[{
-                date: dataToday,
-                hour: hourNow
-            }]
-        });  
-    }
+                /*** init object days of week */
+                $scope.daysWeek = {
+                   Sun : false,
+                   Mon : false,
+                   Tue : false,
+                   Wed : false,
+                   Thu : false,
+                   Fri : false,
+                   Sat : false
+                 };
+
+            },
+            fnEvents:function(){
+
+                /**********************************************
+                /**** JQUERY CLICK HELP AND FOCUS AND BLUR ****/
+                /*********************************************/
+                $( "#header-help" ).click(function() {
+                  $('#content-help').toggle('slow');
+                  ($('.open').hasClass('hidden')) ? $('.open').removeClass('hidden') : $('.open').addClass('hidden');
+                  ($('.close').hasClass('hidden')) ? $('.close').removeClass('hidden') : $('.close').addClass('hidden');
+                });
+
+                $( "input[type=text], input[type=email]" )
+                    .focus(function() {
+                        $( this ).next().show();
+                    })
+                    .blur(function(){
+                        $( this ).next().hide();
+                    });
+
+            },
+            fnEventsScope:function(){
+
+                /**********************************
+                /**** DELETE BIKERS FROM LIST ****/
+                /**********************************/
+                $scope.deleteBiker = function(biker){
+                    $scope.bikers.splice($scope.bikers.indexOf(biker), 1);       
+                }
+
+                /**********************************
+                /****     Clear fields form    ****/
+                /**********************************/
+                $scope.reseteFields = function(){
+                    /*Object days of week */
+                    $scope.daysWeek = {
+                       Sun : false,
+                       Mon : false,
+                       Tue : false,
+                       Wed : false,
+                       Thu : false,
+                       Fri : false,
+                       Sat : false
+                     };
+                     $scope.input.name = '';
+                     $scope.input.email = '';
+                     $scope.input.city = '';
+                     $scope.input.rideGroup =  'Always';
+                }
+
+                /**********************************
+                /****     AddBiker in list    ****/
+                /**********************************/
+                $scope.addBiker = function(){
+                    if($scope.input.rideGroup == undefined){
+                        alert('Please choose Ride in Group !');
+                        return;
+                    }
+                    var daysWeekChoose = daysChoose();
+                    if(daysWeekChoose == ''){
+                        alert('Please choose a days of the week !');
+                        return;
+                    }
+                    var dataToday = getDate();
+                    var hourNow = getHour();
+                    $scope.bikers.push({
+                        name: $scope.input.name,
+                        email: $scope.input.email,
+                        city: $scope.input.city,
+                        rideGroup: $scope.input.rideGroup,
+                        daysOfWeek: daysWeekChoose,
+                        registration:[{
+                            date: dataToday,
+                            hour: hourNow
+                        }]
+                    });
+                    alert('Registro incluído com sucesso !');
+                    $scope.reseteFields();
+                }
+
+            }
+
+        }
+    }());
+
+    appBikers.init();
+
+
+
+
+
+    
+
+
 
     /*********
     /* Pega as variaves de escopo dos dias selecionados e compara
@@ -96,7 +166,6 @@ app.controller('bikersCtrl', ['$scope', '$http', '$q', '$sce', function ($scope,
             return dayChoose;
         }
 
-        console.log(dayChoose);
     }
 
     function getDate(){
@@ -135,6 +204,7 @@ app.controller('bikersCtrl', ['$scope', '$http', '$q', '$sce', function ($scope,
     }, function(reason) {
         alert('Failed: ' + _result);
     });
+
 
     function BikersOpenData(){
         var deferred = $q.defer();

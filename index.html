@@ -4,6 +4,7 @@
 	<meta charset="utf-8">
 	<title>Venturus Dummy App</title>
 	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/checkbox_radio.css">
 	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 
 	<!--[if lt IE 9]>
@@ -118,37 +119,59 @@
 					<h4>Ride in group</h4>
 					
 						<div class="radiobox">
-							<input type="radio" name="ride-group" ng-model="input.rideGroup" id="always" value="Always" class="regular-radio" ng-value="true" /> 
+							<input type="radio" name="ride-group" ng-model="input.rideGroup" id="always" value="Always" class="regular-radio" checked='checked'/> 
 							<label class="radio-checkbox" for="always"></label>
 							Always
 						</div>
 					
 						<div class="radiobox">
-							<input type="radio" name="ride-group" ng-model="input.rideGroup" id="sometimes" value="Sometimes" class="regular-radio" required/> 
+							<input type="radio" name="ride-group" ng-model="input.rideGroup" id="sometimes" value="Sometimes" class="regular-radio"/> 
 							<label for="sometimes" class="radio-checkbox"></label>
 							Sometimes
 						</div>
 					
 						<div class="radiobox">
-							<input type="radio" name="ride-group" ng-model="input.rideGroup" id="never" value="Never" class="regular-radio" required/> 
+							<input type="radio" name="ride-group" ng-model="input.rideGroup" id="never" value="Never" class="regular-radio"/> 
 							<label for="never" class="radio-checkbox"></label>
 							Never
 						</div>
 				</div>
 				<div class="row-inputs">
-					<h4>Days of the week</h4>
-					<input type="checkbox" name="Sun" ng-model="daysWeek.Sun" value="Sun"> Sun<br>
-					<input type="checkbox" name="Mon" ng-model="daysWeek.Mon" value="Mon"> Mon<br>
-					<input type="checkbox" name="Tue" ng-model="daysWeek.Tue" value="Tue"> Tue<br>
-					<input type="checkbox" name="Wed" ng-model="daysWeek.Wed" value="Wed"> Wed<br>
-					<input type="checkbox" name="Sun" ng-model="daysWeek.Thu" value="Thu"> Thu<br>
-					<input type="checkbox" name="Sun" ng-model="daysWeek.Fri" value="Fri"> Fri<br>
-					<input type="checkbox" name="Sat" ng-model="daysWeek.Sat" value="Sat"> Sat<br>
+					<h4 class="daysWeek">Days of the week</h4>
+
+					<div class="checkbox">
+						<input type="checkbox" class="css-checkbox" id="Sun" name="Sun" ng-model="daysWeek.Sun" value="Sun"/>
+						<label for="Sun" name="checkbox1_lbl" class="css-label lite-green-check">Sun</label>
+					</div>
+					<div class="checkbox">
+						<input type="checkbox" class="css-checkbox" id="Mon" name="Mon" ng-model="daysWeek.Mon" value="Mon"/>
+						<label for="Mon" name="checkbox1_lbl" class="css-label lite-green-check">Mon</label>
+					</div>
+					<div class="checkbox">
+						<input type="checkbox" class="css-checkbox" id="Tue" name="Tue" ng-model="daysWeek.Tue" value="Tue"/>
+						<label for="Tue" name="checkbox1_lbl" class="css-label lite-green-check">Tue</label>
+					</div>
+					<div class="checkbox">
+						<input type="checkbox" class="css-checkbox" id="Wed" name="Wed" ng-model="daysWeek.Wed" value="Wed"/>
+						<label for="Wed" name="checkbox1_lbl" class="css-label lite-green-check">Wed</label>
+					</div>
+					<div class="checkbox">
+						<input type="checkbox" class="css-checkbox" id="Thu" name="Thu" ng-model="daysWeek.Thu" value="Thu"/>
+						<label for="Thu" name="checkbox1_lbl" class="css-label lite-green-check">Thu</label>
+					</div>
+					<div class="checkbox">
+						<input type="checkbox" class="css-checkbox" id="Fri" name="Fri" ng-model="daysWeek.Fri" value="Fri"/>
+						<label for="Fri" name="checkbox1_lbl" class="css-label lite-green-check">Fri</label>
+					</div>
+					<div class="checkbox">
+						<input type="checkbox" class="css-checkbox" id="Sat" name="Sat" ng-model="daysWeek.Sat" value="Sat"/>
+						<label for="Sat" name="checkbox1_lbl" class="css-label lite-green-check">Sat</label>
+					</div>
 
 				</div>
 				<div class="row-inputs">
 					<button id="btn-save" ng-click="addBiker()" class="btn-save" ng-disabled="userForm.$invalid">Save</button>
-					<button id="btn-cancel" ng-click="addBiker()" class="btn-cancel">Cancel</button>
+					<button id="btn-cancel" ng-click="reseteFields()" class="btn-cancel">Cancel</button>
 				</div>
 			</div>
 			<!-- END RIGHT -->
