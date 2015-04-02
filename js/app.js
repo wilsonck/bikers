@@ -15,8 +15,6 @@ app.controller('bikersCtrl', ['$scope', '$http', '$q', '$sce', function ($scope,
        Sat : false
      };
 
-     $scope.rideGroup = 'Always';
-
     $( "#header-help" ).click(function() {
       $('#content-help').toggle('slow');
       ($('.open').hasClass('hidden')) ? $('.open').removeClass('hidden') : $('.open').addClass('hidden');

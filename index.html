@@ -3,19 +3,8 @@
 <head lang="pt-br">
 	<meta charset="utf-8">
 	<title>Venturus Dummy App</title>
-
-	<link rel="stylesheet" href="css/grid.css">
 	<link rel="stylesheet" href="css/style.css">
-
 	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-
-	<style>
-
-		/*.list-bikers:hover > .button-delete .btn-delete{
-			display: block !important;
-		}*/
-
-	</style>
 
 	<!--[if lt IE 9]>
 		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -127,15 +116,24 @@
 			<div class="grid_6 fields-right">
 				<div class="row-inputs">
 					<h4>Ride in group</h4>
-					<label for="always" class="css-label radGroup1">
-						<input type="radio" name="ride-group" ng-model="input.rideGroup" id="always" value="Always" class="css-checkbox" ng-value="true" /> Always
-					</label>
-					<label for="sometimes" class="css-label radGroup1">
-						<input type="radio" name="ride-group" ng-model="input.rideGroup" id="sometimes" value="Sometimes" class="css-checkbox" required/> Sometimes
-					</label>
-					<label for="never" class="css-label radGroup1">
-						<input type="radio" name="ride-group" ng-model="input.rideGroup" id="never" value="Never" class="css-checkbox" required/> Never
-					</label>
+					
+						<div class="radiobox">
+							<input type="radio" name="ride-group" ng-model="input.rideGroup" id="always" value="Always" class="regular-radio" ng-value="true" /> 
+							<label class="radio-checkbox" for="always"></label>
+							Always
+						</div>
+					
+						<div class="radiobox">
+							<input type="radio" name="ride-group" ng-model="input.rideGroup" id="sometimes" value="Sometimes" class="regular-radio" required/> 
+							<label for="sometimes" class="radio-checkbox"></label>
+							Sometimes
+						</div>
+					
+						<div class="radiobox">
+							<input type="radio" name="ride-group" ng-model="input.rideGroup" id="never" value="Never" class="regular-radio" required/> 
+							<label for="never" class="radio-checkbox"></label>
+							Never
+						</div>
 				</div>
 				<div class="row-inputs">
 					<h4>Days of the week</h4>

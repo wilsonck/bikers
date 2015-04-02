@@ -233,6 +233,13 @@ header{
 		p.help-block{
 			color:red;
 		}
+		.radiobox{
+			width:149px;
+			float:left;
+			font-size:1.6em;
+			line-height:1.8em;
+			margin-top:17px;
+		}
 		label, h4{
 			width:100%;
 			font-size:1.4em;
@@ -246,6 +253,9 @@ header{
 				float:right;
 				font-weight: normal;
 			}
+		}
+		label.radio-checkbox{
+			width:auto !important;
 		}
 		input[type="text"], input[type="email"]{
 			width:100%;
@@ -352,3 +362,63 @@ footer{
 
 
 
+/***************** RADIO ***********/
+label {
+    display: inline;
+}
+.radio-1 {
+    width: 193px;
+}
+.button-holder {
+    float: left;
+    margin-left: 6px;
+    margin-top: 16px;
+}
+.regular-radio {
+    display: none;
+}
+.regular-radio + label {
+    background-color: #fafafa;
+    border: 2px solid #cacece;
+    border-radius: 50px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), 0 -15px 10px -12px rgba(0, 0, 0, 0.05) inset;
+    display: inline-block;
+    padding: 11px;
+    position: relative;
+    margin-right:15px;
+
+}
+.regular-radio + label:before {
+    background: none repeat scroll 0 0 #FDFDFD;
+    border-radius: 50px;
+    /*box-shadow: 0 0 10px rgba(0, 0, 0, 0.3) inset;*/
+    content: " ";
+    font-size: 36px;
+    height: 8px;
+    left: 7px;
+    position: absolute;
+    top: 7px;
+    width: 8px;
+    margin-right: 15px;
+}
+.regular-radio:checked + label:after {
+    background: none repeat scroll 0 0 @graydark;
+    border-radius: 50px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3) inset;
+    content: " ";
+    font-size: 36px;
+    height: 8px;
+    left: 7px;
+    position: absolute;
+    top: 7px;
+    width: 8px;
+}
+.regular-radio:checked + label {
+    background-color: #fff;
+    border: 2px solid @green;
+    color: #99a1a7;
+    padding: 11px;
+}
+.regular-radio + label:active, .regular-radio:checked + label:active {
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), 0 1px 3px rgba(0, 0, 0, 0.1) inset;
+}
